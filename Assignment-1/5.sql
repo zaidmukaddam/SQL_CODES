@@ -11,15 +11,13 @@ users.userID = education.userID;
 
 
 -- 2 
-SELECT education.UserID,
-       users.first_name,
-       users.last_name,
-       COUNT(first_name) AS [Education Records]
+SELECT first_name,
+       last_name
   FROM users,
        education
  WHERE users.userID = education.userID
  GROUP BY first_name,
           last_name
 HAVING COUNT(first_name) > 1 AND 
-       COUNT(last_name) > 1 AND 
-       COUNT(first_name) = COUNT(last_name);
+       COUNT(last_name) > 1;
+
